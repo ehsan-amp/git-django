@@ -6,4 +6,7 @@ def home(request):
 def getdata(request):
     return HttpResponse("hhh")
 def get1(request,dama,rotobat):
+    from Home.models import TblData
+    new_data = TblData(temperature=dama, humidity=rotobat)
+    new_data.save()
     return HttpResponse(f'dama is {dama} & rotobat is {rotobat}')
