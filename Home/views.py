@@ -2,9 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 def home(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    from Home.models import TblData
+    new1=TblData.objects.all()[2]
+    return HttpResponse(f"Temperature = {new1.temperature}, Humidity = {new1.humidity}")
 def getdata(request):
-    return HttpResponse("hhh")
+    return render(request,'Home/Data-list.html')
 def get1(request,dama,rotobat):
     from Home.models import TblData
     new_data = TblData(temperature=dama, humidity=rotobat)
