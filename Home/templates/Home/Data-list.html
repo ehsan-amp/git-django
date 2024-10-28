@@ -1,9 +1,24 @@
 {% extends 'base.html' %}
 {% block title %} Data List{% endblock %}
 {% block content %}
-    <ul>
-        <li><a href="#">test</a></li>
-        <li><a href="#">test</a></li>
-        <li><a href="#">test</a></li>
-    </ul>
+    <table>
+    <thead>
+      <tr>
+          <td>تاریخ</td>
+          <td>ساعت</td>
+          <td>دما</td>
+          <td>رطوبت</td>
+      </tr>
+    </thead>
+    <tbody>
+        {% for x in item %}
+      <tr>
+          <td>{{ x.Datefild}}</td>
+          <td>{{ x.timefild}}</td>
+          <td>{{ x.temperature }}</td>
+          <td>{{ x.humidity }}</td>
+      </tr>
+        {% endfor %}
+    </tbody>
+    </table>
 {% endblock %}
